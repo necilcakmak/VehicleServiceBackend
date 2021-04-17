@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Car.Api.Migrations
 {
     [DbContext(typeof(CarContext))]
-    [Migration("20210415233322_Initial")]
+    [Migration("20210417134430_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -52,6 +52,10 @@ namespace Car.Api.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
+                    b.Property<string>("Role")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("Id");
 
                     b.HasIndex("Email")
@@ -63,22 +67,24 @@ namespace Car.Api.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedDate = new DateTime(2021, 4, 16, 2, 33, 21, 453, DateTimeKind.Local).AddTicks(8902),
+                            CreatedDate = new DateTime(2021, 4, 17, 16, 44, 29, 857, DateTimeKind.Local).AddTicks(8893),
                             Email = "admin@admin.com",
                             IsActive = true,
-                            ModifiedDate = new DateTime(2021, 4, 16, 2, 33, 21, 453, DateTimeKind.Local).AddTicks(8934),
+                            ModifiedDate = new DateTime(2021, 4, 17, 16, 44, 29, 857, DateTimeKind.Local).AddTicks(8930),
                             Name = "Admin",
-                            Password = "$2a$11$ns/Lu/fYbT1V1xO1uQe8YedejQ87i2E2G.QosnG57JiFqo9VDcA1e"
+                            Password = "$2a$11$p5VU9g5QyHZ9wap7F.QNIOwDOR4e88DwzVUpCAqLf3zwlyKnK4Acy",
+                            Role = "Admin"
                         },
                         new
                         {
                             Id = 2,
-                            CreatedDate = new DateTime(2021, 4, 16, 2, 33, 21, 659, DateTimeKind.Local).AddTicks(8629),
+                            CreatedDate = new DateTime(2021, 4, 17, 16, 44, 30, 16, DateTimeKind.Local).AddTicks(5272),
                             Email = "super@super.com",
                             IsActive = true,
-                            ModifiedDate = new DateTime(2021, 4, 16, 2, 33, 21, 659, DateTimeKind.Local).AddTicks(8660),
+                            ModifiedDate = new DateTime(2021, 4, 17, 16, 44, 30, 16, DateTimeKind.Local).AddTicks(5303),
                             Name = "SuperAdmin",
-                            Password = "$2a$11$ItzpzlvG0DF8PB7CMnM4MehUtM45Xbjsu5RJ8Z1/HAZIWvZr3a0jm"
+                            Password = "$2a$11$orQASH7UgrvfB2M197p9oOy9UzSVLcbFoud3f.YXUSrf6S4ov347O",
+                            Role = "Super"
                         });
                 });
 
@@ -135,10 +141,10 @@ namespace Car.Api.Migrations
                         {
                             Id = 1,
                             Adress = "Düzce/Akçakoca",
-                            CreatedDate = new DateTime(2021, 4, 16, 2, 33, 21, 233, DateTimeKind.Local).AddTicks(7409),
+                            CreatedDate = new DateTime(2021, 4, 17, 16, 44, 29, 680, DateTimeKind.Local).AddTicks(9969),
                             Email = "test@test.com",
                             IsActive = true,
-                            ModifiedDate = new DateTime(2021, 4, 16, 2, 33, 21, 235, DateTimeKind.Local).AddTicks(1196),
+                            ModifiedDate = new DateTime(2021, 4, 17, 16, 44, 29, 681, DateTimeKind.Local).AddTicks(8835),
                             Name = "test",
                             PhoneNumber = "0533423424",
                             TaxNo = "123456"
@@ -147,10 +153,10 @@ namespace Car.Api.Migrations
                         {
                             Id = 2,
                             Adress = "Düzce/Merkez",
-                            CreatedDate = new DateTime(2021, 4, 16, 2, 33, 21, 235, DateTimeKind.Local).AddTicks(1809),
+                            CreatedDate = new DateTime(2021, 4, 17, 16, 44, 29, 681, DateTimeKind.Local).AddTicks(9307),
                             Email = "test2@test.com",
                             IsActive = true,
-                            ModifiedDate = new DateTime(2021, 4, 16, 2, 33, 21, 235, DateTimeKind.Local).AddTicks(1816),
+                            ModifiedDate = new DateTime(2021, 4, 17, 16, 44, 29, 681, DateTimeKind.Local).AddTicks(9311),
                             Name = "test2",
                             PhoneNumber = "0539851524",
                             TaxNo = "654321"
@@ -159,10 +165,10 @@ namespace Car.Api.Migrations
                         {
                             Id = 3,
                             Adress = "Zonguldak/Merkez",
-                            CreatedDate = new DateTime(2021, 4, 16, 2, 33, 21, 235, DateTimeKind.Local).AddTicks(1819),
+                            CreatedDate = new DateTime(2021, 4, 17, 16, 44, 29, 681, DateTimeKind.Local).AddTicks(9313),
                             Email = "test3@test.com",
                             IsActive = true,
-                            ModifiedDate = new DateTime(2021, 4, 16, 2, 33, 21, 235, DateTimeKind.Local).AddTicks(1820),
+                            ModifiedDate = new DateTime(2021, 4, 17, 16, 44, 29, 681, DateTimeKind.Local).AddTicks(9315),
                             Name = "test3",
                             PhoneNumber = "0539851524",
                             TaxNo = "232424"
@@ -171,10 +177,10 @@ namespace Car.Api.Migrations
                         {
                             Id = 4,
                             Adress = "Bolu/Merkez",
-                            CreatedDate = new DateTime(2021, 4, 16, 2, 33, 21, 235, DateTimeKind.Local).AddTicks(1822),
+                            CreatedDate = new DateTime(2021, 4, 17, 16, 44, 29, 681, DateTimeKind.Local).AddTicks(9317),
                             Email = "test4@test.com",
                             IsActive = true,
-                            ModifiedDate = new DateTime(2021, 4, 16, 2, 33, 21, 235, DateTimeKind.Local).AddTicks(1823),
+                            ModifiedDate = new DateTime(2021, 4, 17, 16, 44, 29, 681, DateTimeKind.Local).AddTicks(9318),
                             Name = "test4",
                             PhoneNumber = "0554551524",
                             TaxNo = "6543656"
@@ -303,37 +309,37 @@ namespace Car.Api.Migrations
                         {
                             Id = 1,
                             Brand = "Ford",
-                            CreatedDate = new DateTime(2021, 4, 16, 2, 33, 21, 239, DateTimeKind.Local).AddTicks(2165),
+                            CreatedDate = new DateTime(2021, 4, 17, 16, 44, 29, 685, DateTimeKind.Local).AddTicks(1414),
                             IsActive = true,
                             Model = "Focus",
-                            ModifiedDate = new DateTime(2021, 4, 16, 2, 33, 21, 239, DateTimeKind.Local).AddTicks(1019)
+                            ModifiedDate = new DateTime(2021, 4, 17, 16, 44, 29, 685, DateTimeKind.Local).AddTicks(470)
                         },
                         new
                         {
                             Id = 2,
                             Brand = "Volvo",
-                            CreatedDate = new DateTime(2021, 4, 16, 2, 33, 21, 239, DateTimeKind.Local).AddTicks(2175),
+                            CreatedDate = new DateTime(2021, 4, 17, 16, 44, 29, 685, DateTimeKind.Local).AddTicks(1422),
                             IsActive = true,
                             Model = "S60",
-                            ModifiedDate = new DateTime(2021, 4, 16, 2, 33, 21, 239, DateTimeKind.Local).AddTicks(2173)
+                            ModifiedDate = new DateTime(2021, 4, 17, 16, 44, 29, 685, DateTimeKind.Local).AddTicks(1420)
                         },
                         new
                         {
                             Id = 3,
                             Brand = "Audi",
-                            CreatedDate = new DateTime(2021, 4, 16, 2, 33, 21, 239, DateTimeKind.Local).AddTicks(2178),
+                            CreatedDate = new DateTime(2021, 4, 17, 16, 44, 29, 685, DateTimeKind.Local).AddTicks(1425),
                             IsActive = true,
                             Model = "Quadrado",
-                            ModifiedDate = new DateTime(2021, 4, 16, 2, 33, 21, 239, DateTimeKind.Local).AddTicks(2176)
+                            ModifiedDate = new DateTime(2021, 4, 17, 16, 44, 29, 685, DateTimeKind.Local).AddTicks(1424)
                         },
                         new
                         {
                             Id = 4,
                             Brand = "Tofaş",
-                            CreatedDate = new DateTime(2021, 4, 16, 2, 33, 21, 239, DateTimeKind.Local).AddTicks(2180),
+                            CreatedDate = new DateTime(2021, 4, 17, 16, 44, 29, 685, DateTimeKind.Local).AddTicks(1428),
                             IsActive = true,
                             Model = "Şahin",
-                            ModifiedDate = new DateTime(2021, 4, 16, 2, 33, 21, 239, DateTimeKind.Local).AddTicks(2179)
+                            ModifiedDate = new DateTime(2021, 4, 17, 16, 44, 29, 685, DateTimeKind.Local).AddTicks(1427)
                         });
                 });
 
@@ -394,9 +400,9 @@ namespace Car.Api.Migrations
                         {
                             Id = 1,
                             BuyPrice = 300m,
-                            CreatedDate = new DateTime(2021, 4, 16, 2, 33, 21, 241, DateTimeKind.Local).AddTicks(9140),
+                            CreatedDate = new DateTime(2021, 4, 17, 16, 44, 29, 687, DateTimeKind.Local).AddTicks(4568),
                             IsActive = true,
-                            ModifiedDate = new DateTime(2021, 4, 16, 2, 33, 21, 241, DateTimeKind.Local).AddTicks(9159),
+                            ModifiedDate = new DateTime(2021, 4, 17, 16, 44, 29, 687, DateTimeKind.Local).AddTicks(4574),
                             PartCode = "A81",
                             PartType = "Akü",
                             SellPrice = 400m,
@@ -409,9 +415,9 @@ namespace Car.Api.Migrations
                         {
                             Id = 2,
                             BuyPrice = 700m,
-                            CreatedDate = new DateTime(2021, 4, 16, 2, 33, 21, 242, DateTimeKind.Local).AddTicks(3302),
+                            CreatedDate = new DateTime(2021, 4, 17, 16, 44, 29, 687, DateTimeKind.Local).AddTicks(8047),
                             IsActive = true,
-                            ModifiedDate = new DateTime(2021, 4, 16, 2, 33, 21, 242, DateTimeKind.Local).AddTicks(3310),
+                            ModifiedDate = new DateTime(2021, 4, 17, 16, 44, 29, 687, DateTimeKind.Local).AddTicks(8052),
                             PartCode = "C54",
                             PartType = "Cam",
                             SellPrice = 850m,
@@ -424,9 +430,9 @@ namespace Car.Api.Migrations
                         {
                             Id = 3,
                             BuyPrice = 200m,
-                            CreatedDate = new DateTime(2021, 4, 16, 2, 33, 21, 242, DateTimeKind.Local).AddTicks(3314),
+                            CreatedDate = new DateTime(2021, 4, 17, 16, 44, 29, 687, DateTimeKind.Local).AddTicks(8056),
                             IsActive = true,
-                            ModifiedDate = new DateTime(2021, 4, 16, 2, 33, 21, 242, DateTimeKind.Local).AddTicks(3316),
+                            ModifiedDate = new DateTime(2021, 4, 17, 16, 44, 29, 687, DateTimeKind.Local).AddTicks(8058),
                             PartCode = "J34",
                             PartType = "Jant",
                             SellPrice = 400m,
@@ -439,9 +445,9 @@ namespace Car.Api.Migrations
                         {
                             Id = 4,
                             BuyPrice = 50m,
-                            CreatedDate = new DateTime(2021, 4, 16, 2, 33, 21, 242, DateTimeKind.Local).AddTicks(3318),
+                            CreatedDate = new DateTime(2021, 4, 17, 16, 44, 29, 687, DateTimeKind.Local).AddTicks(8060),
                             IsActive = true,
-                            ModifiedDate = new DateTime(2021, 4, 16, 2, 33, 21, 242, DateTimeKind.Local).AddTicks(3320),
+                            ModifiedDate = new DateTime(2021, 4, 17, 16, 44, 29, 687, DateTimeKind.Local).AddTicks(8061),
                             PartCode = "S11",
                             PartType = "Silecek",
                             SellPrice = 65m,

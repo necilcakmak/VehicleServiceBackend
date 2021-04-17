@@ -18,6 +18,9 @@ namespace Car.Data.Mappings
 
             builder.Property(a => a.CreatedDate).IsRequired();
 
+
+            builder.Property(a => a.Role).IsRequired();
+
             builder.Property(c => c.ModifiedDate).IsRequired();
 
             builder.Property(c => c.Name).HasMaxLength(50);
@@ -38,6 +41,7 @@ namespace Car.Data.Mappings
                 Name = "Admin",
                 Email = "admin@admin.com",
                 Password = BCrypt.Net.BCrypt.HashPassword("1234"),
+                Role="Admin",
                 IsActive = true,
                 CreatedDate = DateTime.Now,
                 ModifiedDate=DateTime.Now
@@ -46,6 +50,7 @@ namespace Car.Data.Mappings
                 Id = 2,
                 Name = "SuperAdmin",
                 Email = "super@super.com",
+                Role="Super",
                 Password = BCrypt.Net.BCrypt.HashPassword("1234"),
                 IsActive = true,
                 CreatedDate = DateTime.Now,

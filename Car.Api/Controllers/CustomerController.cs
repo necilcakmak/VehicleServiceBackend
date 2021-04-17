@@ -31,7 +31,7 @@ namespace Car.Api.Controllers
             var result = await _customerService.Get(id);
             return Ok(result);
         }
-
+        
         [HttpGet("customers")]
         public async Task<IActionResult> GetAll()
         {
@@ -39,7 +39,7 @@ namespace Car.Api.Controllers
             return Ok(result);
         }
 
-        
+
         [HttpPost("customer/create")]
         public async Task<IActionResult> CustomerAdd(CustomerAddDto customerAddDto)
         {

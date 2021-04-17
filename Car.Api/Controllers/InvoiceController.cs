@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Car.Api.Controllers
 {
-    [Authorize]
+    [Authorize(Roles ="Super")]
     [ValidationFilter]
     [Route("api")]
     [ApiController]

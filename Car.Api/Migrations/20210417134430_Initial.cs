@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Car.Api.Migrations
 {
-    public partial class InitialCreate : Migration
+    public partial class Initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -16,6 +16,7 @@ namespace Car.Api.Migrations
                     Name = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     Email = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     Password = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
+                    Role = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     IsActive = table.Column<bool>(type: "bit", nullable: false),
                     CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     ModifiedDate = table.Column<DateTime>(type: "datetime2", nullable: false)
@@ -158,16 +159,22 @@ namespace Car.Api.Migrations
 
             migrationBuilder.InsertData(
                 table: "CompanyPersons",
-                columns: new[] { "Id", "CreatedDate", "Email", "IsActive", "ModifiedDate", "Name", "Password" },
-                values: new object[] { 1, new DateTime(2021, 4, 15, 15, 32, 49, 939, DateTimeKind.Local).AddTicks(4059), "admin@admin.com", true, new DateTime(2021, 4, 15, 15, 32, 49, 939, DateTimeKind.Local).AddTicks(4083), "Admin", "$2a$11$Ul6UsthmfxbXu5NKdh4lZecrTY0DNFNWJhrfhtMn2s6T.BeagrLZa" });
+                columns: new[] { "Id", "CreatedDate", "Email", "IsActive", "ModifiedDate", "Name", "Password", "Role" },
+                values: new object[,]
+                {
+                    { 1, new DateTime(2021, 4, 17, 16, 44, 29, 857, DateTimeKind.Local).AddTicks(8893), "admin@admin.com", true, new DateTime(2021, 4, 17, 16, 44, 29, 857, DateTimeKind.Local).AddTicks(8930), "Admin", "$2a$11$p5VU9g5QyHZ9wap7F.QNIOwDOR4e88DwzVUpCAqLf3zwlyKnK4Acy", "Admin" },
+                    { 2, new DateTime(2021, 4, 17, 16, 44, 30, 16, DateTimeKind.Local).AddTicks(5272), "super@super.com", true, new DateTime(2021, 4, 17, 16, 44, 30, 16, DateTimeKind.Local).AddTicks(5303), "SuperAdmin", "$2a$11$orQASH7UgrvfB2M197p9oOy9UzSVLcbFoud3f.YXUSrf6S4ov347O", "Super" }
+                });
 
             migrationBuilder.InsertData(
                 table: "Customers",
                 columns: new[] { "Id", "Adress", "CreatedDate", "Email", "IsActive", "ModifiedDate", "Name", "PhoneNumber", "TaxNo" },
                 values: new object[,]
                 {
-                    { 1, "Düzce/Akçakoca", new DateTime(2021, 4, 15, 15, 32, 49, 770, DateTimeKind.Local).AddTicks(3190), "test@test.com", true, new DateTime(2021, 4, 15, 15, 32, 49, 771, DateTimeKind.Local).AddTicks(4078), "test", "0533423424", "123456" },
-                    { 2, "Düzce/Merkez", new DateTime(2021, 4, 15, 15, 32, 49, 771, DateTimeKind.Local).AddTicks(4593), "tes2@test.com", true, new DateTime(2021, 4, 15, 15, 32, 49, 771, DateTimeKind.Local).AddTicks(4598), "tes2", "0539851524", "654321" }
+                    { 1, "Düzce/Akçakoca", new DateTime(2021, 4, 17, 16, 44, 29, 680, DateTimeKind.Local).AddTicks(9969), "test@test.com", true, new DateTime(2021, 4, 17, 16, 44, 29, 681, DateTimeKind.Local).AddTicks(8835), "test", "0533423424", "123456" },
+                    { 2, "Düzce/Merkez", new DateTime(2021, 4, 17, 16, 44, 29, 681, DateTimeKind.Local).AddTicks(9307), "test2@test.com", true, new DateTime(2021, 4, 17, 16, 44, 29, 681, DateTimeKind.Local).AddTicks(9311), "test2", "0539851524", "654321" },
+                    { 3, "Zonguldak/Merkez", new DateTime(2021, 4, 17, 16, 44, 29, 681, DateTimeKind.Local).AddTicks(9313), "test3@test.com", true, new DateTime(2021, 4, 17, 16, 44, 29, 681, DateTimeKind.Local).AddTicks(9315), "test3", "0539851524", "232424" },
+                    { 4, "Bolu/Merkez", new DateTime(2021, 4, 17, 16, 44, 29, 681, DateTimeKind.Local).AddTicks(9317), "test4@test.com", true, new DateTime(2021, 4, 17, 16, 44, 29, 681, DateTimeKind.Local).AddTicks(9318), "test4", "0554551524", "6543656" }
                 });
 
             migrationBuilder.InsertData(
@@ -175,19 +182,22 @@ namespace Car.Api.Migrations
                 columns: new[] { "Id", "Brand", "CreatedDate", "IsActive", "Model", "ModifiedDate" },
                 values: new object[,]
                 {
-                    { 1, "Ford", new DateTime(2021, 4, 15, 15, 32, 49, 774, DateTimeKind.Local).AddTicks(5297), true, "Focus", new DateTime(2021, 4, 15, 15, 32, 49, 774, DateTimeKind.Local).AddTicks(4422) },
-                    { 2, "Volvo", new DateTime(2021, 4, 15, 15, 32, 49, 774, DateTimeKind.Local).AddTicks(5306), true, "S60", new DateTime(2021, 4, 15, 15, 32, 49, 774, DateTimeKind.Local).AddTicks(5304) }
+                    { 1, "Ford", new DateTime(2021, 4, 17, 16, 44, 29, 685, DateTimeKind.Local).AddTicks(1414), true, "Focus", new DateTime(2021, 4, 17, 16, 44, 29, 685, DateTimeKind.Local).AddTicks(470) },
+                    { 2, "Volvo", new DateTime(2021, 4, 17, 16, 44, 29, 685, DateTimeKind.Local).AddTicks(1422), true, "S60", new DateTime(2021, 4, 17, 16, 44, 29, 685, DateTimeKind.Local).AddTicks(1420) },
+                    { 3, "Audi", new DateTime(2021, 4, 17, 16, 44, 29, 685, DateTimeKind.Local).AddTicks(1425), true, "Quadrado", new DateTime(2021, 4, 17, 16, 44, 29, 685, DateTimeKind.Local).AddTicks(1424) },
+                    { 4, "Tofaş", new DateTime(2021, 4, 17, 16, 44, 29, 685, DateTimeKind.Local).AddTicks(1428), true, "Şahin", new DateTime(2021, 4, 17, 16, 44, 29, 685, DateTimeKind.Local).AddTicks(1427) }
                 });
 
             migrationBuilder.InsertData(
                 table: "VehicleParts",
                 columns: new[] { "Id", "BuyPrice", "CreatedDate", "IsActive", "ModifiedDate", "PartCode", "PartType", "SellPrice", "Stock", "TaxRate", "TaxStatus", "VehicleId" },
-                values: new object[] { 1, 300m, new DateTime(2021, 4, 15, 15, 32, 49, 776, DateTimeKind.Local).AddTicks(6214), true, new DateTime(2021, 4, 15, 15, 32, 49, 776, DateTimeKind.Local).AddTicks(6226), "A81", "Akü", 400m, 50, 18m, "Yüksek", 1 });
-
-            migrationBuilder.InsertData(
-                table: "VehicleParts",
-                columns: new[] { "Id", "BuyPrice", "CreatedDate", "IsActive", "ModifiedDate", "PartCode", "PartType", "SellPrice", "Stock", "TaxRate", "TaxStatus", "VehicleId" },
-                values: new object[] { 2, 700m, new DateTime(2021, 4, 15, 15, 32, 49, 776, DateTimeKind.Local).AddTicks(9621), true, new DateTime(2021, 4, 15, 15, 32, 49, 776, DateTimeKind.Local).AddTicks(9628), "C54", "Cam", 850m, 30, 15m, "Orta", 2 });
+                values: new object[,]
+                {
+                    { 1, 300m, new DateTime(2021, 4, 17, 16, 44, 29, 687, DateTimeKind.Local).AddTicks(4568), true, new DateTime(2021, 4, 17, 16, 44, 29, 687, DateTimeKind.Local).AddTicks(4574), "A81", "Akü", 400m, 50, 18m, "Yüksek", 1 },
+                    { 2, 700m, new DateTime(2021, 4, 17, 16, 44, 29, 687, DateTimeKind.Local).AddTicks(8047), true, new DateTime(2021, 4, 17, 16, 44, 29, 687, DateTimeKind.Local).AddTicks(8052), "C54", "Cam", 850m, 1000, 15m, "Orta", 2 },
+                    { 4, 50m, new DateTime(2021, 4, 17, 16, 44, 29, 687, DateTimeKind.Local).AddTicks(8060), true, new DateTime(2021, 4, 17, 16, 44, 29, 687, DateTimeKind.Local).AddTicks(8061), "S11", "Silecek", 65m, 1000, 10m, "Yüksek", 2 },
+                    { 3, 200m, new DateTime(2021, 4, 17, 16, 44, 29, 687, DateTimeKind.Local).AddTicks(8056), true, new DateTime(2021, 4, 17, 16, 44, 29, 687, DateTimeKind.Local).AddTicks(8058), "J34", "Jant", 400m, 1000, 25m, "Yüksek", 3 }
+                });
 
             migrationBuilder.CreateIndex(
                 name: "IX_CompanyPersons_Email",

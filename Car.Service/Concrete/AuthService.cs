@@ -32,7 +32,7 @@ namespace Car.Service.Concrete
             var loginUser = await _unitOfWork.CompanyPersons.GetAsync(c => c.Email == loginDto.Email);
             //login isteği atan kullanıcıyı db de ara ilgili email varsa ve parolalar doğru ise gir ve token  üret.
 
-            if (loginUser!=null && loginUser.Email == loginDto.Email && BCrypt.Net.BCrypt.Verify(loginDto.Password, loginUser.Password))
+            if (loginUser != null && loginUser.Email == loginDto.Email && BCrypt.Net.BCrypt.Verify(loginDto.Password, loginUser.Password))
             {
                 var tokenHandler = new JwtSecurityTokenHandler();
                 //appSettings de oluşturduğumuz TokenKey imizi ıConfiguration ile okuyabiliyoruz.
@@ -41,7 +41,8 @@ namespace Car.Service.Concrete
                 {
                     Subject = new ClaimsIdentity(new Claim[]
                     {
-                    new Claim(ClaimTypes.Name,loginUser.Id.ToString())
+                        new Claim(ClaimTypes.Name,loginUser.Id.ToString()),
+                        new Claim(ClaimTypes.Role,loginUser.Role)
                     }),
                     //1 saatlik token ürettik
                     Expires = DateTime.UtcNow.AddHours(1),
