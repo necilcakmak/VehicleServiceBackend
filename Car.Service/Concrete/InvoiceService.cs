@@ -49,7 +49,6 @@ namespace Car.Service.Concrete
         {
             var calculatedData = await Calculate(invoiceAddDto);
             var ınvoice = _mapper.Map<Invoice>(calculatedData);
-            ınvoice.CompanyPersonId = 1;
             await _unitOfWork.Invoices.AddAsync(ınvoice);
             await _unitOfWork.SaveAsync();
             return new Result(ResultStatus.Success, "Kayıt Oluşturuldu");

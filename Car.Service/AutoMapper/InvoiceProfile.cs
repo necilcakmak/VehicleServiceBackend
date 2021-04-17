@@ -20,8 +20,6 @@ namespace Car.Service.AutoMapper
            .ForMember(dest => dest.ModifiedDate, opt => opt.MapFrom(x => DateTime.Now))
            .ForMember(dest => dest.IsActive, opt => opt.MapFrom(x => true));
             CreateMap<Invoice, InvoiceDto>();
-
-
             CreateMap<InvoiceProduct, InvoiceProductDto>();
             CreateMap<Invoice, InvoiceDetailDto>();
         }

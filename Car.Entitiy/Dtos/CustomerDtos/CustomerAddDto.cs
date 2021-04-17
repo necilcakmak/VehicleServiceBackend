@@ -8,7 +8,6 @@ using System.Threading.Tasks;
 
 namespace Car.Entities.Dtos.CustomerDtos
 {
-
     public class CustomerAddDto
     {
         public int Id { get; set; }

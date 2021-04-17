@@ -17,6 +17,8 @@ namespace Car.Entities.Dtos.InvoiceDtos
         [MinLength(5, ErrorMessage = "{0} {1} karakterden az olmamalıdır.")]
         public string Description { get; set; }
 
+        public int CompanyPersonId { get; set; }
+
         [DisplayName("Ödeme Tipi")]
         [Required(ErrorMessage = "{0} boş geçilmemelidir.")]
         [MaxLength(50, ErrorMessage = "{0} {1} karakterden büyük olmamalıdır.")]

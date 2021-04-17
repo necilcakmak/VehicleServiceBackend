@@ -22,7 +22,7 @@ namespace Car.Data.Concrete
         public async Task<IList<Invoice>> GetLastInvoices()
         {
             
-            return await carContext.Invoices.OrderByDescending(x=>x.CreatedDate).Take(10).Where(x=>x.IsActive==true).ToListAsync();
+            return await carContext.Invoices.OrderByDescending(x=>x.CreatedDate).Where(x => x.IsActive == true).Take(10).ToListAsync();
         }
     }
 }

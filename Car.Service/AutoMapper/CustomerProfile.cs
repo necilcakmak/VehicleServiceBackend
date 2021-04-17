@@ -16,11 +16,7 @@ namespace Car.Service.AutoMapper
             CreateMap<CustomerAddDto, Customer>()
                  .ForMember(dest => dest.CreatedDate, opt => opt.MapFrom(x => DateTime.Now))
                  .ForMember(dest => dest.ModifiedDate, opt => opt.MapFrom(x => DateTime.Now))
-                 .ForMember(dest => dest.IsActive, opt => opt.MapFrom(x => true));
-
-            CreateMap<CustomerUpdateDto, Customer>()
-                .ForMember(dest => dest.ModifiedDate, opt => opt.MapFrom(x => DateTime.Now));
-
+                 .ForMember(dest => dest.IsActive, opt => opt.MapFrom(x => true));          
             CreateMap<Customer, CustomerDto>();
         }
     }

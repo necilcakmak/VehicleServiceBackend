@@ -16,6 +16,7 @@ namespace Car.Service.Abstract
         Task<IDataResult<IList<InvoiceDto>>> GetAll();
         Task<IDataResult<IList<InvoiceDto>>> GetLastAll();
         Task<IResult> Add(InvoiceAddDto ınvoice);
+        Task<InvoiceAddDto> Calculate(InvoiceAddDto ınvoice);
         Task<IDataResult<Invoice>> Update(Invoice ınvoice);
         Task<IResult> Delete(int ınvoiceId);
         Task<IList<InvoiceProduct>> GetInvoiceProduct(int invoiceId);
